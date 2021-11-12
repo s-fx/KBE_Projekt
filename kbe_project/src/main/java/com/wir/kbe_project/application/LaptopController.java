@@ -1,10 +1,9 @@
-package com.wir.kbe_project.controller;
+package com.wir.kbe_project.application;
 
 
-import com.wir.kbe_project.exceptions.LaptopNotFoundException;
-import com.wir.kbe_project.model.Laptop;
-import com.wir.kbe_project.modelAssembler.LaptopModelAssembler;
-import com.wir.kbe_project.repository.LaptopRepository;
+import com.wir.kbe_project.application.exceptions.LaptopNotFoundException;
+import com.wir.kbe_project.datastorage.LaptopModelAssembler;
+import com.wir.kbe_project.datastorage.LaptopRepository;
 import org.springframework.hateoas.CollectionModel;
 import org.springframework.hateoas.EntityModel;
 import org.springframework.hateoas.IanaLinkRelations;

@@ -1,6 +1,6 @@
 package com.wir.kbe_project.calculator;
 
-import com.wir.kbe_project.model.Laptop;
+import com.wir.kbe_project.application.Laptop;
 
 public class MWSCalculator {
 

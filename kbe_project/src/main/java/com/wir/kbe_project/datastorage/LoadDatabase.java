@@ -1,7 +1,6 @@
-package com.wir.kbe_project.database;
+package com.wir.kbe_project.datastorage;
 
-import com.wir.kbe_project.model.Laptop;
-import com.wir.kbe_project.repository.LaptopRepository;
+import com.wir.kbe_project.application.Laptop;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.CommandLineRunner;

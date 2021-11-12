@@ -1,4 +1,4 @@
-package com.wir.kbe_project.exceptions;
+package com.wir.kbe_project.application.exceptions;
 
 public class LaptopNotFoundException extends RuntimeException {
 

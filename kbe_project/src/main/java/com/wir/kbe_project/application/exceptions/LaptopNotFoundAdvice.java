@@ -1,4 +1,4 @@
-package com.wir.kbe_project.exceptions;
+package com.wir.kbe_project.application.exceptions;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ControllerAdvice;

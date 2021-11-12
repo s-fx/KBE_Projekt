@@ -1,4 +1,4 @@
-package com.wir.kbe_project.model;
+package com.wir.kbe_project.application;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

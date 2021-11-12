@@ -1,7 +1,7 @@
-package com.wir.kbe_project.modelAssembler;
+package com.wir.kbe_project.datastorage;
 
-import com.wir.kbe_project.controller.LaptopController;
-import com.wir.kbe_project.model.Laptop;
+import com.wir.kbe_project.application.LaptopController;
+import com.wir.kbe_project.application.Laptop;
 import org.springframework.hateoas.EntityModel;
 import org.springframework.hateoas.server.RepresentationModelAssembler;
 import org.springframework.stereotype.Component;
