@@ -13,14 +13,14 @@ import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
  * @Component = is created when app starts
  *
  */
-@Component
+@Component("LaptopModelAssembler")
 public class LaptopModelAssembler implements RepresentationModelAssembler<Laptop, EntityModel<Laptop>> {
 
 
     /**
      * converts a non-model object (laptop) into a model-based object (EntityModel<Laptop>)
      * @param laptop
-     * @return
+     * @return EntityModel
      */
     @Override
     public EntityModel<Laptop> toModel(Laptop laptop) {

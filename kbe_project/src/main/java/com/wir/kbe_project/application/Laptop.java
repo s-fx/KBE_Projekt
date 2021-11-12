@@ -3,6 +3,8 @@ package com.wir.kbe_project.application;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.util.Objects;
 import java.util.UUID;
 
@@ -14,9 +16,13 @@ public class Laptop {
      * TODO: Change Long id to UUID id
      */
     
-    private @Id @GeneratedValue
-    UUID id;
+    private @Id @GeneratedValue UUID id;
+
+    @NotNull(message = "Brand name must be betweenn 3 and 20 characters")
+    @Size(min = 3, max = 20)
     private String brand;
+
+    @NotNull(message = "Price can not be 0")
     private double price;
 
     public Laptop() {}
