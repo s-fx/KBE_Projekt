@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import java.util.Objects;
+import java.util.UUID;
 
 
 @Entity
@@ -13,7 +14,8 @@ public class Laptop {
      * TODO: Change Long id to UUID id
      */
     
-    private @Id @GeneratedValue Long id;
+    private @Id @GeneratedValue
+    UUID id;
     private String brand;
     private double price;
 
@@ -24,11 +26,11 @@ public class Laptop {
         this.price = price;
     }
 
-    public Long getId() {
+    public UUID getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(UUID id) {
         this.id = id;
     }
 

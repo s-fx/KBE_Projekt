@@ -10,6 +10,8 @@ import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
 
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.UUID;
+
 @RestController
 public class CalculatorController {
 
@@ -20,7 +22,7 @@ public class CalculatorController {
     }
 
     @GetMapping("/calculator/{id}")
-    public double one(@PathVariable Long id) {
+    public double one(@PathVariable UUID id) {
         Laptop laptop = repository.findById(id).orElseThrow(() -> new LaptopNotFoundException(id));
 
         return MWSCalculator.calculateMWS(laptop);

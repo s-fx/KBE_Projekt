@@ -11,6 +11,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.UUID;
 import java.util.stream.Collectors;
 
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
@@ -73,7 +74,7 @@ public class LaptopController {
      * @return model of laptop through assembler
      */
     @GetMapping("/laptops/{id}")
-    public EntityModel<Laptop> one(@PathVariable Long id) {
+    public EntityModel<Laptop> one(@PathVariable UUID id) {
         Laptop laptop = repository.findById(id).orElseThrow(() -> new LaptopNotFoundException(id));
         return assembler.toModel(laptop);
     }
@@ -85,7 +86,7 @@ public class LaptopController {
      * @return
      */
     @PutMapping("/laptops/{id}")
-    ResponseEntity<?> replaceLaptop(@RequestBody Laptop newLaptop, @PathVariable Long id) {
+    ResponseEntity<?> replaceLaptop(@RequestBody Laptop newLaptop, @PathVariable UUID id) {
         Laptop updatedLaptop = repository.findById(id) //
                 .map(laptop -> {
                     laptop.setBrand(newLaptop.getBrand());
@@ -109,7 +110,7 @@ public class LaptopController {
      * @return
      */
     @DeleteMapping("/laptops/{id}")
-    ResponseEntity<?> deleteLaptop(@PathVariable Long id) {
+    ResponseEntity<?> deleteLaptop(@PathVariable UUID id) {
         repository.deleteById(id);
         return ResponseEntity.noContent().build();
     }
