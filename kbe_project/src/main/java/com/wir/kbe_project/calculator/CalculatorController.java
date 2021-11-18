@@ -25,7 +25,7 @@ public class CalculatorController {
     public double one(@PathVariable UUID id) {
         Laptop laptop = repository.findById(id).orElseThrow(() -> new LaptopNotFoundException(id));
 
-        return MWSCalculator.calculateMWS(laptop);
+        return MWSCalculatorService.calculateMWS(laptop);
     }
 
 }
