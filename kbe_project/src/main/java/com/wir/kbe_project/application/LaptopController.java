@@ -18,6 +18,7 @@ import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
 
 @RestController
+@RequestMapping("/api")
 public class LaptopController {
 
     /**
@@ -46,12 +47,12 @@ public class LaptopController {
      * @return CollectionModel of laptops
      */
     @GetMapping("/laptops")
-    public CollectionModel<EntityModel<Laptop>> all() {
+    public CollectionModel<EntityModel<Laptop>> getAllLaptops() {
         List<EntityModel<Laptop>> laptops = repository.findAll().stream() //
                 .map(assembler::toModel) //
                 .collect(Collectors.toList());
 
-        return CollectionModel.of(laptops, linkTo(methodOn(LaptopController.class).all()).withSelfRel());
+        return CollectionModel.of(laptops, linkTo(methodOn(LaptopController.class).getAllLaptops()).withSelfRel());
     }
 
     /**
@@ -60,7 +61,7 @@ public class LaptopController {
      * @return 201 HTTP Created response
      */
     @PostMapping("/laptops")
-    ResponseEntity<?> newLaptop(@RequestBody Laptop newLaptop) {
+    ResponseEntity<?> addLaptop(@RequestBody Laptop newLaptop) {
         EntityModel<Laptop> entityModel = assembler.toModel(newLaptop);
         return ResponseEntity.created(entityModel.getRequiredLink(IanaLinkRelations.SELF).toUri()).body(entityModel);
     }
@@ -74,7 +75,7 @@ public class LaptopController {
      * @return model of laptop through assembler
      */
     @GetMapping("/laptops/{id}")
-    public EntityModel<Laptop> one(@PathVariable UUID id) {
+    public EntityModel<Laptop> getLaptop(@PathVariable UUID id) {
         Laptop laptop = repository.findById(id).orElseThrow(() -> new LaptopNotFoundException(id));
         return assembler.toModel(laptop);
     }

@@ -19,7 +19,7 @@ public class Laptop {
     private @Id @GeneratedValue UUID id;
 
     @NotNull(message = "Brand name must be betweenn 3 and 20 characters")
-    @Size(min = 3, max = 20)
+    @Size(min = 1, max = 20)
     private String brand;
 
     @NotNull(message = "Price can not be 0")

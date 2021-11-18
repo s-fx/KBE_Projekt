@@ -25,7 +25,7 @@ public class LaptopModelAssembler implements RepresentationModelAssembler<Laptop
     @Override
     public EntityModel<Laptop> toModel(Laptop laptop) {
         return EntityModel.of(laptop, //
-                linkTo(methodOn(LaptopController.class).one(laptop.getId())).withSelfRel(),
-                linkTo(methodOn(LaptopController.class).all()).withRel("laptops"));
+                linkTo(methodOn(LaptopController.class).getLaptop(laptop.getId())).withSelfRel(),
+                linkTo(methodOn(LaptopController.class).getAllLaptops()).withRel("laptops"));
     }
 }

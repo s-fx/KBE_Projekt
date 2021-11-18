@@ -8,11 +8,13 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
 
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.UUID;
 
 @RestController
+@RequestMapping("api")
 public class CalculatorController {
 
     private final LaptopRepository repository;
@@ -22,7 +24,7 @@ public class CalculatorController {
     }
 
     @GetMapping("/calculator/{id}")
-    public double one(@PathVariable UUID id) {
+    public double getMWS(@PathVariable UUID id) {
         Laptop laptop = repository.findById(id).orElseThrow(() -> new LaptopNotFoundException(id));
 
         return MWSCalculatorService.calculateMWS(laptop);
